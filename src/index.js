@@ -33,7 +33,11 @@ const reducer = (state = initialState, action) => {
         posts:  [...state.posts, ...action.payload],
         loading: false
       }        
-
+    case 'deletePosts' : 
+      return {
+        ...state,
+        posts: state.posts.filter(i => i.id !== action.payload)
+      }
     default: 
       return state;
   }

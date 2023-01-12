@@ -12,3 +12,9 @@ export const loadPosts = () => {
         })
   }
 }
+export const deletePosts = (id) => {
+  return dispatch => dispatch({
+    type: 'deletePosts',
+    payload: id
+  })
+}

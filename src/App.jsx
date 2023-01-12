@@ -2,8 +2,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {loadPosts} from "./action";
-
+import {loadPosts, deletePosts} from "./action";
+import Header from './Header'
 import './App.css';
 
 function App(){
@@ -14,17 +14,20 @@ function App(){
   useEffect(() => {
     dispatch(loadPosts())
   }, [dispatch])
+  const handleClick = (id) => {
+    dispatch(deletePosts(id))
+  }
   return(
     <div className="App">
+      <Header/>
       {
       loading ? 
       <div>
-        <div>
-        Идет загрузка!!!
-        </div> 
+        <h1 className="loading">Идет загрузка!!!</h1> 
         {posts.map(item => {
         return(
-          <div key={item.id}>
+          <div className="block" key={item.id}>
+            <div className="delete">x</div>
             <p className="title">
               {item.id}){item.title}:        
             </p>
@@ -38,7 +41,12 @@ function App(){
       :
       posts.map(item => {
         return(
-          <div key={item.id}>
+          <div className="block" key={item.id}>
+            <div 
+            className="delete"
+            onClick={() => handleClick(item.id)} >
+              <span>x</span>
+            </div>
             <p className="title">
             {item.id}){item.title}:        
             </p>

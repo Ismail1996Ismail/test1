@@ -12,3 +12,34 @@
   font-weight: 500;
   color: rgb(128, 119, 119);
 }
+.loading {
+  font-size: 120px; 
+  text-align: center;
+}
+.block {
+  border: 2px solid rgb(71, 61, 61);
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.Post {
+  font-size: 60px;
+  text-align: center;
+}
+.delete {
+  position: relative;
+  left: 97%;
+  width: 3%;
+  height: 30px;
+  background-color: red;
+  color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+  border-radius: 50%;
+}
+.delete span {
+  position: absolute;
+  top: 40%; 
+  left: 50%; 
+  transform: translate(-50%, -50%)
+}
